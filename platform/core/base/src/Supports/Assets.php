@@ -78,6 +78,7 @@ class Assets extends BaseAssets
      * @deprecated since v5.13
      * @return array
      */
+    
     public function getAdminLocales(): array
     {
         return Language::getAvailableLocales();
@@ -88,7 +89,7 @@ class Assets extends BaseAssets
      * @return string
      * @throws Throwable
      */
-    public function renderHeader($lastStyles = [])
+    public function renderHeader89($lastStyles = [])
     {
         do_action(BASE_ACTION_ENQUEUE_SCRIPTS);
 
@@ -99,7 +100,7 @@ class Assets extends BaseAssets
      * @return string
      * @throws Throwable
      */
-    public function renderFooter()
+    public function renderFooter89()
     {
         $bodyScripts = $this->getScripts(self::ASSETS_SCRIPT_POSITION_FOOTER);
 
