@@ -5,7 +5,7 @@ use Botble\RealEstate\Models\Project;
 use Botble\RealEstate\Models\Property;
 
 Route::group(['namespace' => 'Botble\RealEstate\Http\Controllers', 'middleware' => ['web', 'core']], function () {
-    Route::group([
+       Route::group([
         'prefix'     => BaseHelper::getAdminPrefix() . '/real-estate',
         'middleware' => 'auth',
     ], function () {

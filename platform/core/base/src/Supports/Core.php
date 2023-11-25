@@ -16,7 +16,7 @@ use Menu;
 use Theme;
 use ZipArchive;
 
-class Core00
+class Core
 {
     /**
      * @var string
@@ -73,30 +73,13 @@ class Core00
      */
     public function __construct()
     {
-        $this->apiUrl = 'https://license.botble.com';
-        $this->apiKey = 'CAF4B17F6D3F656125F9';
-        $this->currentVersion = get_cms_version();
-        $this->verificationPeriod = 1;
-        $this->rootPath = base_path();
-        $this->licenseFile = storage_path('.license');
-
-        $core = BaseHelper::getFileData(core_path('core.json'));
-
-        if ($core) {
-            $this->productId = Arr::get($core, 'productId');
-            $this->verifyType = Arr::get($core, 'source');
-            $this->apiUrl = Arr::get($core, 'apiUrl', $this->apiUrl);
-            $this->apiKey = Arr::get($core, 'apiKey', $this->apiKey);
-            $this->currentVersion = Arr::get($core, 'version', $this->currentVersion);
-        }
-
-        $this->apiUrl = rtrim($this->apiUrl, '/');
+        
     }
 
     /**
      * @return string
      */
-    public function getCurrentVersion(): string
+    public function getCurrentVersion10New(): string
     {
         return $this->currentVersion;
     }
@@ -104,7 +87,7 @@ class Core00
     /**
      * @return string
      */
-    public function getLicenseFilePath(): string
+    public function getLicenseFilePath10New(): string
     {
         return $this->licenseFile;
     }
@@ -112,7 +95,7 @@ class Core00
     /**
      * @return array
      */
-    public function checkConnection(): array
+    public function checkConnection10New(): array
     {
         return $this->callApi($this->apiUrl . '/api/check_connection_ext', []);
     }
@@ -122,7 +105,7 @@ class Core00
      * @param array $data
      * @return array
      */
-    protected function callApi(string $url, array $data = []): array
+    protected function callApi10New(string $url, array $data = []): array
     {
         if (!extension_loaded('curl')) {
             return [
@@ -178,7 +161,7 @@ class Core00
     /**
      * @return array
      */
-    public function getLatestVersion(): array
+    public function getLatestVersion10New(): array
     {
         return $this->callApi(
             $this->apiUrl . '/api/latest_version',
@@ -194,7 +177,7 @@ class Core00
      * @param bool $createLicense
      * @return array
      */
-    public function activateLicense(string $license, string $client, bool $createLicense = true): array
+    public function activateLicense10New(string $license, string $client, bool $createLicense = true): array
     {
         $data = [
             'product_id'   => $this->productId,
@@ -233,7 +216,7 @@ class Core00
      * @param bool $client
      * @return array
      */
-    public function verifyLicense(bool $timeBasedCheck = false, bool $license = false, bool $client = false): array
+    public function verifyLicense10New(bool $timeBasedCheck = false, bool $license = false, bool $client = false): array
     {
         dd('-------------');
         $data = [
@@ -297,7 +280,7 @@ class Core00
     /**
      * @return bool
      */
-    public function checkLocalLicenseExist(): bool
+    public function checkLocalLicenseExist10New(): bool
     {
         return is_file($this->licenseFile);
     }
@@ -307,7 +290,7 @@ class Core00
      * @param bool $client
      * @return array
      */
-    public function deactivateLicense(bool $license = false, bool $client = false): array
+    public function deactivateLicense10New(bool $license = false, bool $client = false): array
     {
         $data = [];
 
@@ -343,7 +326,7 @@ class Core00
     /**
      * @return array
      */
-    public function checkUpdate(): array
+    public function checkUpdate10New(): array
     {
         return $this->callApi(
             $this->apiUrl . '/api/check_update',
@@ -360,7 +343,7 @@ class Core00
      * @param string|null $license
      * @param string|null $client
      */
-    public function downloadUpdate(string $updateId, string $version, ?string $license = null, ?string $client = null)
+    public function downloadUpdate10New(string $updateId, string $version, ?string $license = null, ?string $client = null)
     {
         if (!empty($license) && !empty($client)) {
             $dataArray = [
