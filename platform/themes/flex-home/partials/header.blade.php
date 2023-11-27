@@ -12,11 +12,17 @@
     <link href="https://fonts.googleapis.com/css2?family={{ urlencode(theme_option('primary_font', 'Nunito Sans')) }}:wght@300;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        :root {
+        /* :root {
             --primary-color: {{ theme_option('primary_color', '#1d5f6f') }};
             --primary-color-rgb: {{ BaseHelper::hexToRgba(theme_option('primary_color', '#1d5f6f'), 0.8) }};
             --primary-color-hover: {{ theme_option('primary_color_hover', '#063a5d') }};
             --primary-font: '{{ theme_option('primary_font', 'Nunito Sans') }}';
+        } */
+        :root {
+            --primary-color: {{ theme_option('primary_color', '#202942') }};
+            --primary-color-rgb: {{ BaseHelper::hexToRgba(theme_option('primary_color', '#202942'), 0.8) }};
+            --primary-color-hover: {{ theme_option('primary_color_hover', '#063a5d') }};
+            --primary-font: '{{ theme_option('primary_font', 'Poppins') }}';
         }
     </style>
 
