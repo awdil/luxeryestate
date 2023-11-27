@@ -134,7 +134,7 @@
                                     !!}
                                     @if (is_plugin_active('real-estate') && RealEstateHelper::isRegisterEnabled())
                                         <a class="btn btn-primary add-property" href="{{ route('public.account.properties.index') }}">
-                                            <i class="fas fa-plus-circle"></i> {{ __('Add Property') }}
+                                            <i class="fas fa-plus-circle"></i> {{ __('Create Listing') }}
                                         </a>
                                     @endif
 

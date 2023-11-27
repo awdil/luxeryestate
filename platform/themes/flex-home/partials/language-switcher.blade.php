@@ -7,7 +7,7 @@
             $languageDisplay = setting('language_display', 'all');
         @endphp
 
-        <div class="header-deliver">/</div>
+        <div class="header-deliver"></div>
 
         <div class="padtop10 mb-2 language">
             @if (setting('language_switcher_display', 'dropdown') == 'dropdown')

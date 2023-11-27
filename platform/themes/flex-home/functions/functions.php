@@ -36,7 +36,7 @@ register_page_template([
 register_sidebar([
     'id'          => 'footer_sidebar',
     'name'        => __('Footer sidebar'),
-    'description' => __('Footer sidebar for Flex Home theme'),
+    'description' => __('Footer sidebar for Luxery Estae theme'),
 ]);
 
 Event::listen(RenderingSiteMapEvent::class, function () {
