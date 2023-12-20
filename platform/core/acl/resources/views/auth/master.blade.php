@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="faded-bg animated"></div>
-            <div class="hidden-xs col-sm-7 col-md-8">
+            <div class="hidden-xs col-sm-3 col-md-4">
                 <div class="clearfix">
                     <div class="col-sm-12 col-md-10 col-md-offset-2">
                         <div class="logo-title-container">

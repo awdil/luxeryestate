@@ -3,7 +3,7 @@
     "source": "luxery estate",
     "apiUrl": "luxeryestate",
     "apiKey": "CAF4B17F6D3F656125F9",
-    "version": "2.45.5",
+    "version": "UAT",
     "marketplaceUrl": "https://luxeryestate.com",
     "marketplaceToken": "2e201be32e23085f7875f48d616d9fa131bc370a",
     "minimumPhpVersion": "8.0.2"
