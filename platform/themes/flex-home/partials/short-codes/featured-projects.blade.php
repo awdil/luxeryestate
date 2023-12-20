@@ -1,4 +1,4 @@
-<div class="box_shadow" style="margin-top: 0;">
+<!-- <div class="box_shadow" style="margin-top: 0;">
     <div class="container-fluid w90">
         <div class="projecthome">
             <div class="row">
@@ -18,4 +18,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
