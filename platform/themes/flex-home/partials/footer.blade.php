@@ -1,3 +1,15 @@
+<style>
+    /* New footer  */
+    .bg-footer {
+        background-color: #202942 !important;
+    }
+    .global-footer__text-link:link, .global-footer__text-link:visited {
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+</style>
 <!--FOOTER-->
 <footer class="bg-footer text-white">
     <br>
