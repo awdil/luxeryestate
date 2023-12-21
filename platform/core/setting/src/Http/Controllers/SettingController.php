@@ -287,33 +287,7 @@ class SettingController extends BaseController
      * @param BaseHttpResponse $response
      * @return BaseHttpResponse
      */
-    public function getVerifyLicense(Core $coreApi, BaseHttpResponse $response)
-    {
-        dd('avoid to do this--');
-        if (!File::exists(storage_path('.license'))) {
-            return $response->setError()->setMessage('Your license is invalid. Please activate your license!');
-        }
-
-        try {
-            $result = $coreApi->verifyLicense(true);
-
-            if (!$result['status']) {
-                return $response->setError()->setMessage($result['message']);
-            }
-
-            $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
-        } catch (Throwable $exception) {
-            $activatedAt = Carbon::now();
-            $result = ['message' => $exception->getMessage()];
-        }
-
-        $data = [
-            'activated_at' => $activatedAt->format('M d Y'),
-            'licensed_to'  => setting('licensed_to'),
-        ];
-
-        return $response->setMessage($result['message'])->setData($data);
-    }
+    
 
     /**
      * @param LicenseSettingRequest $request
@@ -321,42 +295,7 @@ class SettingController extends BaseController
      * @param Core $coreApi
      * @return BaseHttpResponse
      */
-    public function activateLicense(LicenseSettingRequest $request, BaseHttpResponse $response, Core $coreApi)
-    {
-        if (filter_var($request->input('buyer'), FILTER_VALIDATE_URL)) {
-            $buyer = explode('/', $request->input('buyer'));
-            $username = end($buyer);
-
-            return $response
-                ->setError()
-                ->setMessage('Envato username must not a URL. Please try with username "' . $username . '"!');
-        }
-
-        try {
-            $result = $coreApi->activateLicense($request->input('purchase_code'), $request->input('buyer'));
-
-            if (!$result['status']) {
-                return $response->setError()->setMessage($result['message']);
-            }
-
-            setting()
-                ->set(['licensed_to' => $request->input('buyer')])
-                ->save();
-
-            $activatedAt = Carbon::createFromTimestamp(filectime($coreApi->getLicenseFilePath()));
-
-            $data = [
-                'activated_at' => $activatedAt->format('M d Y'),
-                'licensed_to'  => $request->input('buyer'),
-            ];
-
-            return $response->setMessage($result['message'])->setData($data);
-        } catch (Throwable $exception) {
-            return $response
-                ->setError()
-                ->setMessage($exception->getMessage());
-        }
-    }
+    
 
     /**
      * @param BaseHttpResponse $response
@@ -364,22 +303,7 @@ class SettingController extends BaseController
      * @return BaseHttpResponse
      * @throws Exception
      */
-    public function deactivateLicense(BaseHttpResponse $response, Core $coreApi)
-    {
-        try {
-            $result = $coreApi->deactivateLicense();
-
-            if (!$result['status']) {
-                return $response->setError()->setMessage($result['message']);
-            }
-
-            $this->settingRepository->deleteBy(['key' => 'licensed_to']);
-
-            return $response->setMessage($result['message']);
-        } catch (Throwable $exception) {
-            return $response->setError()->setMessage($exception->getMessage());
-        }
-    }
+    
 
     /**
      * @param LicenseSettingRequest $request
@@ -387,22 +311,7 @@ class SettingController extends BaseController
      * @param Core $coreApi
      * @return BaseHttpResponse
      */
-    public function resetLicense(LicenseSettingRequest $request, BaseHttpResponse $response, Core $coreApi)
-    {
-        try {
-            $result = $coreApi->deactivateLicense($request->input('purchase_code'), $request->input('buyer'));
-
-            if (!$result['status']) {
-                return $response->setError()->setMessage($result['message']);
-            }
-
-            $this->settingRepository->deleteBy(['key' => 'licensed_to']);
-
-            return $response->setMessage($result['message']);
-        } catch (Throwable $exception) {
-            return $response->setError()->setMessage($exception->getMessage());
-        }
-    }
+    
 
     /**
      * @param MediaFileInterface $fileRepository

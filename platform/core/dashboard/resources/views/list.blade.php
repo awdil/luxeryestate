@@ -1,16 +1,6 @@
 @extends(BaseHelper::getAdminMasterLayoutTemplate())
 @section('content')
-    <div id="dashboard-alerts">
-        <verify-license-component verify-url="{{ route('settings.license.verify') }}" setting-url="{{ route('settings.options') }}"></verify-license-component>
-        @if (config('core.base.general.enable_system_updater') && Auth::user()->isSuperUser())
-            <check-update-component check-update-url="{{ route('system.check-update') }}" setting-url="{{ route('system.updater') }}"></check-update-component>
-        @endif
-        @if (!version_compare(phpversion(), '8.0.2', '>=') > 0)
-            <div class="note note-warning">
-                <p class="text-danger"><strong>{{ trans('core/base::system.php_version_warning', ['version' => phpversion()]) }}</strong></p>
-            </div>
-        @endif
-    </div>
+    
     {!! apply_filters(DASHBOARD_FILTER_ADMIN_NOTIFICATIONS, null) !!}
     <div class="row">
         {!! apply_filters(DASHBOARD_FILTER_TOP_BLOCKS, null) !!}

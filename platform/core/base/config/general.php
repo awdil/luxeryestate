@@ -3,7 +3,7 @@
 return [
     'admin_dir'                 => env('ADMIN_DIR', 'admin'),
     'default-theme'             => env('DEFAULT_THEME', 'default'),
-    'base_name'                 => env('APP_NAME', 'Botble Technologies'),
+    'base_name'                 => env('APP_NAME', 'RealEstate Technologies'),
     'logo'                      => '/vendor/core/core/base/images/logo_white.png',
     'favicon'                   => '/vendor/core/core/base/images/favicon.png',
     'editor'                    => [
@@ -673,8 +673,8 @@ return [
             ['link', 'color', 'Text'],
         ],
     ],
-    'enable_system_updater'        => env('CMS_ENABLE_SYSTEM_UPDATER', true),
-    'phone_validation_rule'        => env('CMS_PHONE_VALIDATION_RULE', 'min:8|max:15|regex:/^([0-9\s\-\+\(\)]*)$/'),
+    'enable_system_updater'        => env('CMS_ENABLE_SYSTEM_UPDATER', false),
+    'phone_validation_rule'        => env('CMS_PHONE_VALIDATION_RULE', 'min:8|max:17|regex:/^([0-9\s\-\+\(\)]*)$/'),
     'disable_verify_csrf_token'    => env('CMS_DISABLE_VERIFY_CSRF_TOKEN', false),
     'enable_less_secure_web'       => env('CMS_ENABLE_LESS_SECURE_WEB', false),
     'db_strict_mode'               => env('DB_STRICT', true),

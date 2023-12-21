@@ -75,7 +75,9 @@ class RealEstateHelper
      */
     public function isEnabledCreditsSystem(): bool
     {
-        return setting('real_estate_enable_credits_system', 1) == 1;
+        //return setting('real_estate_enable_credits_system', 1) == 1;
+        return false;
+        //dd($response);
     }
 
     /**
